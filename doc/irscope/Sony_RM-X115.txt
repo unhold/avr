@@ -1,0 +1,9 @@
+Sony RM-X115
+15 bit SIRC
+
+start, 7 bits commmand, 8 bits device
+
+VolUp:
+S | 010 0100 | 0010 0001
+command 0x24, device 0x21
+

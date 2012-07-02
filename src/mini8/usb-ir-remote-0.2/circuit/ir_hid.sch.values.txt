@@ -1,0 +1,22 @@
+Qty Value             Device          Parts                            Description                                          
+1                     PINHD-1X1       JP4                              PIN HEADER                                           
+2                     PINHD-1X4       JP3, JP5                         PIN HEADER                                           
+2                     PINHD-2X3       JP1, JP2                         PIN HEADER                                           
+1                     USB-787616      X1                               AMP connector                                        
+1   1M                R-EU_0309/10    R16                              RESISTOR, European symbol                            
+3   1N4148            1N4148          D1, D2, D3                       DIODE                                                
+1   1k5               R-EU_0207/7     R1                               RESISTOR, European symbol                            
+1   10                R-EU_0207/5V    R7                               RESISTOR, European symbol                            
+2   10u               CPOL-EUE2.5-5   C3, C4                           POLARIZED CAPACITOR, European symbol                 
+1   12MHz             CRYTALHC49S     Q1                               CRYSTAL                                              
+2   27p               C-EU025-024X044 C1, C2                           CAPACITOR, European symbol                           
+2   47K               R-EU_0207/7     R4, R8                           RESISTOR, European symbol                            
+1   68R               R-EU_0207/2V    R3                               RESISTOR, European symbol                            
+1   68R               R-EU_0207/5V    R2                               RESISTOR, European symbol                            
+2   100               R-EU_0207/7     R5, R6                           RESISTOR, European symbol                            
+7   220               R-EU_0207/7     R9, R10, R11, R12, R13, R14, R15 RESISTOR, European symbol                            
+1   ATMega8L          AT90S4433P      IC1                              MICROCONTROLLER                                      
+1   D-SUB 25 PIN MALE M25H            X3                               SUB-D                                                
+1   ELIRM8602X        ELIRM8602X      U1                               IR reciver module for 38KHz modulated 940nm Ir-light 
+1   Program           10-XX           S1                               OMRON SWITCH                                         
+1   Status            LED3MM          LED2                             LED                                                  

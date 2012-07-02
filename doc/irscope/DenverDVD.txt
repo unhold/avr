@@ -1,0 +1,18 @@
+Denver DVD player remote control (unknown model)
+
+NEC protocol (classic)
+long pause = 1
+short pause = 0
+
+address, /address, command, /command
+LSB first
+
+key 1:
+
+10000000 01111111 10100000 01011111
+address 1, command 5
+
+key 2:
+
+10000000 01111111 10100010 01011101
+address 1, command 69

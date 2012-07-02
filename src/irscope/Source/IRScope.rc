@@ -1,0 +1,326 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\IRScope.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_IRSCOPE             ICON    DISCARDABLE     "res\\idr_main.ico"
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\idr_irsc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 363, 230
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About IRScope"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,18,20
+    LTEXT           "IRScope Version 1.51",IDC_STATIC,40,12,86,8,SS_NOPREFIX
+    LTEXT           "Copyright © 2000, 2007, 2008  Kevin Timmerman",
+                    IDC_STATIC,132,12,173,8
+    DEFPUSHBUTTON   "OK",IDOK,315,9,41,14,WS_GROUP
+    EDITTEXT        IDC_LICENSE,7,34,349,189,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | WS_VSCROLL,
+                    WS_EX_STATICEDGE
+END
+
+IDD_IRSCOPE_DIALOG DIALOGEX 0, 0, 332, 246
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "IR Scope"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Port",IDC_STATIC,7,6,26,8
+    COMBOBOX        IDC_PORT,7,17,47,102,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Capture &Duration",IDC_STATIC,7,36,61,8
+    EDITTEXT        IDC_DURATION,7,47,47,14,ES_AUTOHSCROLL
+    LTEXT           "mS",IDC_STATIC,58,51,11,8
+    LTEXT           "&Hardware and Mode",IDC_STATIC,7,67,83,8
+    COMBOBOX        IDC_HARDWARE,7,79,91,65,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    GROUPBOX        "Save",IDC_STATIC,107,6,80,86
+    CONTROL         "&IR Capture Text",IDC_SAVE_ICT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,114,20,66,10
+    CONTROL         "&Audio",IDC_SAVE_WAV,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,114,38,34,10
+    CONTROL         "&TV-B-Gone",IDC_SAVE_TVBG,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,114,56,51,10
+    CONTROL         "Ask for &Name",IDC_ASK_NAME,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,114,74,67,10
+    PUSHBUTTON      "&View...",IDC_VIEW,195,6,129,24
+    DEFPUSHBUTTON   "&Capture!",IDC_CAPTURE,195,37,129,55
+    CONTROL         "List1",IDC_DECODE,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,101,317,117
+    PUSHBUTTON      "C&lear",IDC_CLEAR_DECODE,7,225,50,14
+    CONTROL         "Clear before capture",IDC_CLEAR_BEFORE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,63,227,80,10
+    CONTROL         "Show Waveform",IDC_SHOW_WAVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,148,227,69,10
+    LTEXT           "IRDecode.DLL not found",IDC_DECODE_REV,221,227,103,10,0,
+                    WS_EX_RIGHT
+END
+
+IDD_IR_SCOPE_CONFIG DIALOG DISCARDABLE  0, 0, 185, 73
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IR Scope Config"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_PIXEL_TIME,7,7,27,14,ES_AUTOHSCROLL
+    LTEXT           "&microseconds per pixel",IDC_STATIC,37,11,72,8
+    CONTROL         "Show &elapsed time",IDC_ELAPSED_TIME,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,28,93,10
+    CONTROL         "Show &pulse times",IDC_PULSE_TIMES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,42,71,10
+    CONTROL         "Show pulse &counts",IDC_PULSE_COUNTS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,56,76,10
+    DEFPUSHBUTTON   "OK",IDOK,128,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,128,24,50,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,5,1,0
+ PRODUCTVERSION 1,5,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "CompendiumArcana\0"
+            VALUE "FileDescription", "IRSCOPE MFC Application\0"
+            VALUE "FileVersion", "1, 5, 1, 0\0"
+            VALUE "InternalName", "IRSCOPE\0"
+            VALUE "LegalCopyright", "Copyright © 2000, 2007, 2008 Kevin Timmerman\0"
+            VALUE "OriginalFilename", "IRSCOPE.EXE\0"
+            VALUE "ProductName", "IRSCOPE Application\0"
+            VALUE "ProductVersion", "1, 5, 1, 0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 356
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 223
+    END
+
+    IDD_IRSCOPE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 324
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 239
+    END
+
+    IDD_IR_SCOPE_CONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 178
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_IRSCOPE_DIALOG DLGINIT
+BEGIN
+    IDC_PORT, 0x403, 5, 0
+0x4f43, 0x314d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x4f43, 0x324d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x4f43, 0x334d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x4f43, 0x344d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x4f43, 0x354d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x4f43, 0x364d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x4f43, 0x374d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x4f43, 0x384d, "\000" 
+    IDC_PORT, 0x403, 5, 0
+0x4f43, 0x394d, "\000" 
+    IDC_PORT, 0x403, 6, 0
+0x4f43, 0x314d, 0x0030, 
+    IDC_PORT, 0x403, 6, 0
+0x4f43, 0x314d, 0x0031, 
+    IDC_PORT, 0x403, 6, 0
+0x4f43, 0x314d, 0x0032, 
+    IDC_PORT, 0x403, 6, 0
+0x4f43, 0x314d, 0x0033, 
+    IDC_PORT, 0x403, 6, 0
+0x4f43, 0x314d, 0x0034, 
+    IDC_PORT, 0x403, 6, 0
+0x4f43, 0x314d, 0x0035, 
+    IDC_PORT, 0x403, 6, 0
+0x4f43, 0x314d, 0x0036, 
+    IDC_HARDWARE, 0x403, 16, 0
+0x5249, 0x5720, 0x6469, 0x6567, 0x2074, 0x6f43, 0x6e75, 0x0074, 
+    IDC_HARDWARE, 0x403, 15, 0
+0x694d, 0x696e, 0x4f50, 0x3356, 0x4320, 0x756f, 0x746e, "\000" 
+    IDC_HARDWARE, 0x403, 15, 0
+0x6944, 0x6373, 0x6572, 0x6574, 0x4320, 0x756f, 0x746e, "\000" 
+    IDC_HARDWARE, 0x403, 14, 0
+0x5249, 0x5720, 0x6469, 0x6567, 0x5474, 0x6d69, 0x0065, 
+    IDC_HARDWARE, 0x403, 14, 0
+0x694d, 0x696e, 0x4f50, 0x3356, 0x5420, 0x6d69, 0x0065, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+1                       24      DISCARDABLE     "res\\manifest.txt"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// LICENSE
+//
+
+IDR_LICENSE             LICENSE DISCARDABLE     "res\\license1.bin"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About IRScope..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\IRScope.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,7 @@
+
+
+2:36 PM 5/16/2008 J. Birkler 
+
+Newest version of the usb driver
+Revamped to project to support the avr boot loader so that once it is flashed once with ISP it can be flashed using the bootloader.
+

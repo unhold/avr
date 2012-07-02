@@ -1,0 +1,5 @@
+BRD:
+DISPLAY NONE
+DISPLAY Top Bottom Pads Dimension tPlace tOrigin tNames tValues
+EXPORT IMAGE ../doc/ir_hid_brd.png 200 PNG
+QUIT

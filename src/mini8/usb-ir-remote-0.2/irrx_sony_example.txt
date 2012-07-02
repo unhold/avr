@@ -1,0 +1,44 @@
+//Signal is active low
+0:20ms
+1:60ms
+//One start bit
+0:2400us
+//Here starts bits
+1:600us
+0:1200us
+
+1:600us
+0:600us
+
+1:600us
+0:1200us
+
+1:600us
+0:600us
+
+1:600us
+0:1200us
+
+1:600us
+0:1200us
+
+1:600us
+0:1200us
+
+1:600us
+0:1200us
+
+1:600us
+0:1200us
+
+1:600us
+0:1200us
+
+1:600us
+0:1200us
+
+1:600us
+0:1200us
+
+
+1:1s

@@ -1,0 +1,36 @@
+Part Value             Device          Package         Description                                          
+C1   27p               C-EU025-024X044 C025-024X044    CAPACITOR, European symbol                           
+C2   27p               C-EU025-024X044 C025-024X044    CAPACITOR, European symbol                           
+C3   10u               CPOL-EUE2.5-5   E2,5-5          POLARIZED CAPACITOR, European symbol                 
+C4   10u               CPOL-EUE2.5-5   E2,5-5          POLARIZED CAPACITOR, European symbol                 
+D1   1N4148            1N4148          DO35-10         DIODE                                                
+D2   1N4148            1N4148          DO35-10         DIODE                                                
+D3   1N4148            1N4148          DO35-10         DIODE                                                
+IC1  ATMega8L          AT90S4433P      DIL28-3         MICROCONTROLLER                                      
+JP1                    PINHD-2X3       2X03            PIN HEADER                                           
+JP2                    PINHD-2X3       2X03            PIN HEADER                                           
+JP3                    PINHD-1X4       1X04            PIN HEADER                                           
+JP4                    PINHD-1X1       1X01            PIN HEADER                                           
+JP5                    PINHD-1X4       1X04            PIN HEADER                                           
+LED2 Status            LED3MM          LED3MM          LED                                                  
+Q1   12MHz             CRYTALHC49S     HC49/S          CRYSTAL                                              
+R1   1k5               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R2   68R               R-EU_0207/5V    0207/5V         RESISTOR, European symbol                            
+R3   68R               R-EU_0207/2V    0207/2V         RESISTOR, European symbol                            
+R4   47K               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R5   100               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R6   100               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R7   10                R-EU_0207/5V    0207/5V         RESISTOR, European symbol                            
+R8   47K               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R9   220               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R10  220               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R11  220               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R12  220               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R13  220               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R14  220               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R15  220               R-EU_0207/7     0207/7          RESISTOR, European symbol                            
+R16  1M                R-EU_0309/10    0309/10         RESISTOR, European symbol                            
+S1   Program           10-XX           B3F-10XX        OMRON SWITCH                                         
+U1   ELIRM8602X        ELIRM8602X      ELIRM8608S-BENT IR reciver module for 38KHz modulated 940nm Ir-light 
+X1                     USB-787616      USB             AMP connector                                        
+X3   D-SUB 25 PIN MALE M25H            M25H            SUB-D                                                

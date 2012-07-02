@@ -1,0 +1,1 @@
+A USB Infrared remote control receiver for Sony protocol. USB is implemented in an inexpensive AVR using firmware-only. IR decoder is written as a interrupt routine using the ICP interrupt making it fairly robust. 

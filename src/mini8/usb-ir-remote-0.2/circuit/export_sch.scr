@@ -1,0 +1,7 @@
+SCH:
+DISPLAY ALL
+DISPLAY NONE
+DISPLAY nets busses symbols names values info guide
+EXPORT IMAGE ../doc/ir_hid_sch.png 100 PNG
+EXPORT PARTLIST ../doc/ir_hid_part.txt
+QUIT

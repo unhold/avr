@@ -1,0 +1,43 @@
+Partlist
+
+Exported from ir_hid.sch at 6/7/10 1:49 PM
+
+EAGLE Version 5.7.0 Copyright (c) 1988-2010 CadSoft
+
+Part     Value             Device          Package         Library      Sheet
+
+C1       27p               C-EU025-024X044 C025-024X044    rcl          1
+C2       27p               C-EU025-024X044 C025-024X044    rcl          1
+C3       10u               CPOL-EUE2.5-5   E2,5-5          rcl          1
+C4       10u               CPOL-EUE2.5-5   E2,5-5          rcl          1
+D1       1N4148            1N4148          DO35-10         diode        1
+D2       1N4148            1N4148          DO35-10         diode        1
+D3       1N4148            1N4148          DO35-10         diode        1
+IC1      ATMega8L          AT90S4433P      DIL28-3         atmel        1
+JP1                        PINHD-2X3       2X03            pinhead      1
+JP2                        PINHD-2X3       2X03            pinhead      1
+JP3                        PINHD-1X4       1X04            pinhead      1
+JP4                        PINHD-1X1       1X01            pinhead      1
+JP5                        PINHD-1X4       1X04            pinhead      1
+LED2     Status            LED3MM          LED3MM          led          1
+Q1       12MHz             CRYTALHC49S     HC49/S          crystal      1
+R1       1k5               R-EU_0207/7     0207/7          rcl          1
+R2       68R               R-EU_0207/5V    0207/5V         rcl          1
+R3       68R               R-EU_0207/2V    0207/2V         rcl          1
+R4       47K               R-EU_0207/7     0207/7          rcl          1
+R5       100               R-EU_0207/7     0207/7          rcl          1
+R6       100               R-EU_0207/7     0207/7          rcl          1
+R7       10                R-EU_0207/5V    0207/5V         rcl          1
+R8       47K               R-EU_0207/7     0207/7          rcl          1
+R9       220               R-EU_0207/7     0207/7          rcl          1
+R10      220               R-EU_0207/7     0207/7          rcl          1
+R11      220               R-EU_0207/7     0207/7          rcl          1
+R12      220               R-EU_0207/7     0207/7          rcl          1
+R13      220               R-EU_0207/7     0207/7          rcl          1
+R14      220               R-EU_0207/7     0207/7          rcl          1
+R15      220               R-EU_0207/7     0207/7          rcl          1
+R16      1M                R-EU_0309/10    0309/10         rcl          1
+S1       Program           10-XX           B3F-10XX        switch-omron 1
+U1       ELIRM8602X        ELIRM8602X      ELIRM8608S-BENT elirm        1
+X1                         USB-787616      USB             con-amp      1
+X3       D-SUB 25 PIN MALE M25H            M25H            con-subd     1

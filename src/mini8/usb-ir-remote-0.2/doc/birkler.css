@@ -1,0 +1,92 @@
+/*
+ * birkler.net style sheet
+ * copyright 2003 
+ * Jörgen Birkler
+ */
+
+
+
+body 
+{
+	text-align:right;
+	font-family: sans-serif; 
+	margin-left: 50%; 
+	margin-right: 10%;
+	margin-top:15%;
+	font-size:8pt;
+	background-repeat: no-repeat;
+	background-position:bottom right;
+	background-color:white;
+	background-image: url(./img_nml/birkler.se_logo_25.png);
+	background-attachment: fixed;
+	//bottom left 
+	
+}
+	.footer 
+	{
+		background-color:Silver;
+	}
+
+p
+{
+	margin-top:0mm;
+	margin-bottom:5pt;
+}
+
+a
+{
+	text-decoration:none;
+	:link  /* for unvisited links */
+	{
+		color:Blue;
+	}  
+	:visited /* for visited links */
+	{
+		color:Blue; 
+	} 
+	:active /* when link is clicked */
+	{
+	} 
+	:hover 
+	{
+		color:Purple; 
+		background-color: #EEEEEE;
+	} /* when mouse is over link */
+}
+
+a:hover.color-select 
+{
+	background-color:Transparent;
+}	
+
+		
+table 
+{
+	border:none;
+}
+
+.gallery 
+{
+	border:0px none;
+	
+}
+
+
+h1
+{
+	text-align:right;
+	border-bottom:solid thick #DDDDFF;
+	border-bottom-width:3px;
+	font-size:10pt;
+
+}
+
+h2
+{
+	border-bottom:solid thick #DDDDFF;
+}
+
+h3, h4, h5, h6 
+{
+	border-bottom:inset thin #DDDDFF;
+}
