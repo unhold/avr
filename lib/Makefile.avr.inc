@@ -3,7 +3,6 @@ NAME ?= main
 # default flags
 CFLAGS += -Wall -g -mmcu=$(MCU) -DF_CPU=$(F_CPU)
 ASFLAGS += $(CFLAGS)
-LDFLAGS += -Wl
 
 # switch the compiler (for the internal make rules)
 CC = avr-gcc
@@ -100,4 +99,4 @@ ifdef ASSOURCES
 endif
 
 # include project dependencies
-include $(NAME).d
+-include $(NAME).d

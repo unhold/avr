@@ -1,0 +1,13 @@
+# Atmel AVR programmers
+
+# Atmel AVR ISP mkII
+SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2104", GROUP="plugdev", MODE="0660" 
+
+# usbprog bootloader
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1781", ATTRS{idProduct}=="0c62", GROUP="plugdev", MODE="0660"
+ 
+# USBasp programmer
+SUBSYSTEM=="usb", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="05dc", GROUP="plugdev", MODE="0660"
+ 
+# USBtiny programmer
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1781", ATTRS{idProduct}=="0c9f", GROUP="plugdev", MODE="0660"
