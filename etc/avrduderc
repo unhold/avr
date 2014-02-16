@@ -1,0 +1,8 @@
+# AVRDUDE per-user configuration file
+
+default_parallel = "/dev/parport0";
+default_serial = "/dev/ttyUSB0";
+#default_programmer = "stk200";
+#default_programmer = "avr910";
+default_programmer = "usbasp";
+
