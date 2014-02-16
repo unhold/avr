@@ -5,7 +5,6 @@
  * Tabsize: 4
  * Copyright: (c) 2008 by OBJECTIVE DEVELOPMENT Software GmbH
  * License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
- * This Revision: $Id: main.c 790 2010-05-30 21:00:26Z cs $
  */
 
 /*
@@ -34,7 +33,7 @@ different port or bit, change the macros below:
 /* ----------------------------- USB interface ----------------------------- */
 /* ------------------------------------------------------------------------- */
 
-PROGMEM char usbHidReportDescriptor[22] = {    /* USB report descriptor */
+PROGMEM const char usbHidReportDescriptor[22] = {   /* USB report descriptor */
     0x06, 0x00, 0xff,              // USAGE_PAGE (Generic Desktop)
     0x09, 0x01,                    // USAGE (Vendor Usage 1)
     0xa1, 0x01,                    // COLLECTION (Application)

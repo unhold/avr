@@ -5,7 +5,6 @@
  * Tabsize: 4
  * Copyright: (c) 2008 by OBJECTIVE DEVELOPMENT Software GmbH
  * License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
- * This Revision: $Id: main.c 773 2010-01-15 18:30:36Z cs $
  */
 
 /*
@@ -48,7 +47,7 @@ void usbFunctionWriteOut(uchar *data, uchar len)
 
 #if USE_DYNAMIC_DESCRIPTOR
 
-static PROGMEM char myDescriptorDevice[] = {    /* USB device descriptor */
+static PROGMEM const char myDescriptorDevice[] = {    /* USB device descriptor */
     18,         /* sizeof(usbDescriptorDevice): length of descriptor in bytes */
     USBDESCR_DEVICE,        /* descriptor type */
     0x10, 0x01,             /* USB version supported */
@@ -68,7 +67,7 @@ static PROGMEM char myDescriptorDevice[] = {    /* USB device descriptor */
     1,          /* number of configurations */
 };
 
-static PROGMEM char myDescriptorConfiguration[] = { /* USB configuration descriptor */
+static PROGMEM const char myDescriptorConfiguration[] = { /* USB configuration descriptor */
     9,          /* sizeof(usbDescriptorConfiguration): length of descriptor in bytes */
     USBDESCR_CONFIG,    /* descriptor type */
     18 + 7 * USB_CFG_HAVE_INTRIN_ENDPOINT + (USB_CFG_DESCR_PROPS_HID & 0xff), 0,
@@ -122,7 +121,7 @@ uchar *p = 0, len = 0;
         p = (uchar *)(myDescriptorConfiguration);
         len = sizeof(myDescriptorConfiguration);
     }
-    usbMsgPtr = p;
+    usbMsgPtr = (usbMsgPtr_t)p;
     return len;
 }
 #endif
