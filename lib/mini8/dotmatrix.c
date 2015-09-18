@@ -59,9 +59,21 @@ void dotmatrix_init(void) {
 	TCCR2 = 1<<WGM21 | 0<<WGM20 | 1<<CS22 | 1<<CS21 | 0<<CS20;
 		// ctc mode, oc2 disconnected, clk/256
 	OCR2 = TIMER2_OCR_VALUE; // 111 ... 60 Hz @ 12 MHz clk
-	TIMSK &= ~(1 << TOIE2); // overflow interrupt disabled
-	TIMSK |= (1 << OCIE2); // compare match interrupt enabled
+	TIMSK |= 1 << OCIE2; // compare match interrupt enabled
 }
+
+void dotmatrix_off(void) {
+	TIMSK &= ~(1 << OCIE2); // compare match interrupt disabled
+	TCCR2 = 0;
+	dotmatrix_data(0);
+}
+
+void dotmatrix_on(void) {
+	TCCR2 = 1<<WGM21 | 0<<WGM20 | 1<<CS22 | 1<<CS21 | 0<<CS20;
+		// ctc mode, oc2 disconnected, clk/256
+	TIMSK |= 1 << OCIE2; // compare match interrupt enabled
+}
+
 
 void dotmatrix_set_callback(dotmatrix_callback_t c) {
 	callback = c;
@@ -134,9 +146,6 @@ void dotmatrix_babsi(void) {
 }
 
 ISR(TIMER2_COMP_vect) {
-	static uint16_t count = CALLBACK_AFTER;
-	TIMSK &= ~(1 << OCIE2);
-	sei();
 	#ifdef DOTMATRIX_REVERSE
 		dotmatrix_adress(6-line);
 	#else // DOTMATRIX_REVERSE
@@ -144,9 +153,4 @@ ISR(TIMER2_COMP_vect) {
 	#endif // DOTMATRIX_REVERSE
 	dotmatrix_data(font[line]);
 	next_line();
-	if (callback != 0 && --count == 0) {
-		count = CALLBACK_AFTER;
-		callback();
-	}
-	TIMSK |= (1 << OCIE2);
 }

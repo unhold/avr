@@ -31,9 +31,9 @@ extern volatile uint8_t servo_flags;
 #define SERVO_ZERO  2250 // default 2250 --> 1.5ms
 #define SERVO_LEFT  1800 // min     1500 --> 1.0ms
 #define SERVO_RIGHT 2700 // max     3000 --> 2.0ms
-#define ICP_ZERO  	2100 // default 2250 --> 1.5ms
-#define ICP_LEFT  	1200 // min     1500 --> 1.0ms
-#define ICP_RIGHT 	3000 // max     3000 --> 2.0ms
+#define ICP_ZERO    2100 // default 2250 --> 1.5ms
+#define ICP_LEFT    1200 // min     1500 --> 1.0ms
+#define ICP_RIGHT   3000 // max     3000 --> 2.0ms
 
 // Set the timer compare step value for move function
 #define SERVO_STEP 15

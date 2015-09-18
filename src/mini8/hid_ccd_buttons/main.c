@@ -46,7 +46,7 @@ static uchar keyPressed(void) {
 static uchar    reportBuffer;       /* buffer for HID reports */
 static uchar    idleRate;           /* in 4 ms units */
 
-PROGMEM char usbHidReportDescriptor[25] = { /* USB report descriptor */
+PROGMEM const char usbHidReportDescriptor[25] = { /* USB report descriptor */
     0x05, 0x0c,                    // USAGE_PAGE (Consumer Devices)
     0x09, 0x01,                    // USAGE (Consumer Control)
     0xa1, 0x01,                    // COLLECTION (Application)

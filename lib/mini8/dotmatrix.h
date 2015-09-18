@@ -17,8 +17,8 @@
 #include <avr/interrupt.h>
 #include "fonts.h"
 
-#define DOTMATRIX_REVERSE 1 // Activate to rotate the letters on the display
-#define DOTMATRIX_REFRESH_RATE 120 // Refresh rate in [Hz]
+#define DOTMATRIX_REVERSE 0 // Activate to rotate the letters on the display
+#define DOTMATRIX_REFRESH_RATE 60 // Refresh rate in [Hz]
 #define DOTMATRIX_CALLBACK_TIME 200 // Callback every t in [ms]
 
 typedef void(*dotmatrix_callback_t)(void); // Type of a callback function
@@ -26,6 +26,10 @@ typedef void(*dotmatrix_callback_t)(void); // Type of a callback function
 void dotmatrix_init(void); // This HAS TO BE CALLED before use
 	// Note that the status of the I-flag is not changed;
 	// for correct function of the module it has to be enabled outside
+
+void dotmatrix_on(void);
+
+void dotmatrix_off(void);
 
 void dotmatrix_set_callback(dotmatrix_callback_t);
 	// Set a callback func to call every DOTMATRIX_CALLBACK_TIME milliseconds

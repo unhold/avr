@@ -1,7 +1,7 @@
 NAME ?= main
 
 # default flags
-CFLAGS += -Wall -g -mmcu=$(MCU) -DF_CPU=$(F_CPU)
+CFLAGS += -Wall -g -mmcu=$(MCU) -DF_CPU=$(F_CPU) -Wno-deprecated-declarations -D__PROG_TYPES_COMPAT__
 ASFLAGS += $(CFLAGS)
 
 # switch the compiler (for the internal make rules)
@@ -39,7 +39,12 @@ clean:
 
 # flash programming
 
+AVRDUDE_PARTNO ?= $(MCU)
+AVRDUDE_PARTNO := $(subst atmega,m,$(AVRDUDE_PARTNO))
+AVRDUDE_PARTNO := $(subst attiny,t,$(AVRDUDE_PARTNO))
+
 AVRDUDE ?= avrdude
+AVRDUDE += -p $(AVRDUDE_PARTNO)
 
 AD_FLASH = -U flash:w:$(NAME).hex:i
 .PHONY: flash

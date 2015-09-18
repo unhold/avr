@@ -130,6 +130,7 @@ static uint8_t servo_level = 8;
 
 int main(void) {
 	servo_level = eeprom_read_byte(SERVO_LEVEL_EEADR);
+	if (servo_level > 9) servo_level = 0;
 	set_servo_limit(servo_level);
 	key_init();
 	servo_init();

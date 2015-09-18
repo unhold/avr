@@ -67,6 +67,14 @@
 #define key2_wait() \
 	while (PINC & 1<<PC4)
 
+// Wait until Key1 is released.
+#define key1_wait_release() \
+	while (!(PINC & 1<<PC3))
+
+// Wait until Key2 is released.
+#define key2_wait_release() \
+	while (!(PINC & 1<<PC4))
+	
 // Wait until LS1 is active.
 #define ls1_wait() \
 	while (PINC & 1<<PC1)

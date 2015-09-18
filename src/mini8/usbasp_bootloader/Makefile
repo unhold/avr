@@ -14,7 +14,7 @@
 #     make flash   # to load the boot loader into flash
 #     make lock    # to protect the boot loader from overwriting
 
-F_CPU = 16000000
+F_CPU = 12000000
 DEVICE = atmega8
 # BOOTLOADER_ADDRESS is 1800 for 8k devices, 3800 for 16k and 7800 for 32k.
 BOOTLOADER_ADDRESS = 1800
