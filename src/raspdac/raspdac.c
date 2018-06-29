@@ -10,10 +10,15 @@
 #define LED 1
 #define POWER_N 0
 
-volatile bool on;
-
 #define switch_pressed() \
 	(~PINB & 1<<SWITCH_N)
+
+// about 500 ms at prescaler 1024
+#define BLINK_COUNT_MAX 2
+
+volatile static bool on;
+volatile static bool blink_state;
+volatile static char blink_count;
 
 ISR(INT0_vect) {
 	PORTB &= ~(1<<POWER_N);
@@ -25,20 +30,53 @@ ISR(INT0_vect) {
 	on = true;
 }
 
-void poweroff(void) {
-	PORTB |= 1<<POWER_N;
-	PORTB &= ~(1<<LED);
-	GIMSK = 0;
-	on = false;
+ISR(TIMER0_OVF_vect) {
+	blink_count++;
+	if (blink_count == BLINK_COUNT_MAX) {
+		blink_count = 0;
+		if (blink_state) {
+			PORTB &= ~(1<<SHUTDOWN);
+			PORTB &= ~(1<<LED);
+		} else {
+			PORTB |= 1<<SHUTDOWN;
+			PORTB |= 1<<LED;
+		}
+		blink_state = !blink_state;
+	}
+}
+
+static inline void shutdown(void) {
+	PORTB |= 1<<SHUTDOWN;
+	PORTB |= 1<<LED;
+
+	// init timer
+	TCCR0B = 0; // stop timer
+	GTCCR = 1<<PSR0; // reset prescaler
+	
+	TIFR = 0; // clear timer interrupts
+	TIMSK = 1<<TOIE0; // overflow interrupt enable
+	TCCR0A = 0; // normal mode, OC0A/OC0B disconnected
+	TCCR0B = 1<<CS02|0<<CS01|1<<CS00; // start, clkIO/1024
+
+	blink_count = 0;
+	blink_state = true;
+}
+
+static inline void poweroff(void) {
+		PORTB |= 1<<POWER_N;
+		PORTB &= ~(1<<LED);
+		TCCR0B = 0; // stop timer
+		GIMSK = 0;
+		on = false;
 }
 
 ISR(PCINT0_vect) {
 	if (switch_pressed()) {
 		char loop = 30;
-		PORTB |= 1<<SHUTDOWN;
+		shutdown();
 		do {
 			_delay_ms(100);
-			if (loop) --loop;
+			if (loop) loop--;
 			else if (on) poweroff();
 		} while (switch_pressed());
 	}
@@ -46,7 +84,6 @@ ISR(PCINT0_vect) {
 		poweroff();
 		_delay_ms(100);
 	}
-	GIFR = 0;
 }
 
 int main() {
@@ -66,8 +103,6 @@ main:
 		set_sleep_mode(SLEEP_MODE_IDLE);
 		sleep_mode();
 	} while (on);
-	//while (!on);
-	//while (on);
 	goto main;
 	return 0;
 }
