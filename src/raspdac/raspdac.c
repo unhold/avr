@@ -10,7 +10,7 @@
 #define LED 1
 #define POWER_N 0
 
-#define switch_pressed() \
+#define SWITCH_PRESSED() \
 	(~PINB & 1<<SWITCH_N)
 
 // about 500 ms at prescaler 1024
@@ -23,7 +23,7 @@ volatile static char blink_count;
 ISR(INT0_vect) {
 	PORTB &= ~(1<<POWER_N);
 	PORTB |= 1<<LED;
-	do _delay_ms(100); while (switch_pressed());
+	do _delay_ms(100); while (SWITCH_PRESSED());
 	GIMSK = 1<<PCIE;
 	GIFR = 0;
 	PCMSK = 1<<POWEROFF | 1<<SWITCH_N;
@@ -71,14 +71,14 @@ static inline void poweroff(void) {
 }
 
 ISR(PCINT0_vect) {
-	if (switch_pressed()) {
+	if (SWITCH_PRESSED()) {
 		char loop = 30;
 		shutdown();
 		do {
 			_delay_ms(100);
 			if (loop) loop--;
 			else if (on) poweroff();
-		} while (switch_pressed());
+		} while (SWITCH_PRESSED());
 	}
 	if (PINB & 1<<POWEROFF) {
 		poweroff();
@@ -86,23 +86,29 @@ ISR(PCINT0_vect) {
 	}
 }
 
+#define SLEEP_WHILE(_condition, _sleep_mode) \
+	do { \
+		set_sleep_mode(_sleep_mode); \
+		cli(); \
+		if (_condition) { \
+			sleep_enable(); \
+			sei(); \
+			sleep_cpu(); \
+			sleep_disable(); \
+		} \
+	} while(_condition)
+
 int main() {
-main:
-	cli();
-	PORTB = 0<<SHUTDOWN | 0<<POWEROFF | 1<<SWITCH_N | 0<<LED | 1<<POWER_N;
-	DDRB  = 1<<SHUTDOWN | 0<<POWEROFF | 0<<SWITCH_N | 1<<LED | 1<<POWER_N;
-	_delay_ms(100);
-	GIMSK = 1<<INT0;
-	GIFR = 0;
-	sei();
-	do {
-		set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-		sleep_mode();
-	} while (!on);
-	do {
-		set_sleep_mode(SLEEP_MODE_IDLE);
-		sleep_mode();
-	} while (on);
-	goto main;
+	while (true) {
+		cli();
+		PORTB = 0<<SHUTDOWN | 0<<POWEROFF | 1<<SWITCH_N | 0<<LED | 1<<POWER_N;
+		DDRB  = 1<<SHUTDOWN | 0<<POWEROFF | 0<<SWITCH_N | 1<<LED | 1<<POWER_N;
+		_delay_ms(100);
+		GIMSK = 1<<INT0;
+		GIFR = 0;
+		sei();
+		SLEEP_WHILE(!on, SLEEP_MODE_PWR_DOWN);
+		SLEEP_WHILE(on, SLEEP_MODE_IDLE);
+	}
 	return 0;
 }
