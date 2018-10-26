@@ -4,22 +4,26 @@
 #include <avr/sleep.h>
 #include <util/delay.h>
 
-#define SHUTDOWN 3
-#define POWEROFF 4
-#define SWITCH_N 2
-#define LED 1
-#define POWER_N 0
+// Port B pin numbers
+#define SHUTDOWN 3 // OUT: Shutdown request to RaspberryPi.
+#define POWEROFF 4 // IN : Poweroff confirmation from RaspberryPi.
+#define SWITCH_N 2 // IN : Low-active power switch signal.
+#define LED 1      // OUT: LED on power switch.
+#define POWER_N 0  // OUT: Low-active RaspberryPi power enable.
 
 #define SWITCH_PRESSED() \
 	(~PINB & 1<<SWITCH_N)
 
-// about 500 ms at prescaler 1024
+// About 500 ms at prescaler 1024
 #define BLINK_COUNT_MAX 2
 
 volatile static bool on;
 volatile static bool blink_state;
 volatile static char blink_count;
 
+// Interrupt on power switch when RaspberryPi is off.
+// Power on RaspberryPi and LED.
+// Disable INT0. Enable PCINT0.
 ISR(INT0_vect) {
 	PORTB &= ~(1<<POWER_N);
 	PORTB |= 1<<LED;
@@ -30,6 +34,8 @@ ISR(INT0_vect) {
 	on = true;
 }
 
+// Interrupt on timer overflow, used to blink LED.
+// Pulse shutdown request to make sure an edge-sensitive interrupt is triggered.
 ISR(TIMER0_OVF_vect) {
 	blink_count++;
 	if (blink_count == BLINK_COUNT_MAX) {
@@ -45,6 +51,7 @@ ISR(TIMER0_OVF_vect) {
 	}
 }
 
+// Send shutdown request to RaspberryPi and start blinking LED.
 static inline void shutdown(void) {
 	PORTB |= 1<<SHUTDOWN;
 	PORTB |= 1<<LED;
@@ -62,6 +69,7 @@ static inline void shutdown(void) {
 	blink_state = true;
 }
 
+// Power off RaspberryPi.
 static inline void poweroff(void) {
 		PORTB |= 1<<POWER_N;
 		PORTB &= ~(1<<LED);
@@ -70,7 +78,11 @@ static inline void poweroff(void) {
 		on = false;
 }
 
+// Interrupt on power switch when RaspberryPi is on,
+// or RaspberryPi confirmes poweroff.
 ISR(PCINT0_vect) {
+	// Short press to send shutdown request to RaspberryPi.
+	// Long press for hard shutdown.
 	if (SWITCH_PRESSED()) {
 		char loop = 30;
 		shutdown();
@@ -80,12 +92,14 @@ ISR(PCINT0_vect) {
 			else if (on) poweroff();
 		} while (SWITCH_PRESSED());
 	}
+	// Power off if RaspberryPi confirmes poweroff.
 	if (PINB & 1<<POWEROFF) {
 		poweroff();
 		_delay_ms(100);
 	}
 }
 
+// Timed sequence to avoid race condition.
 #define SLEEP_WHILE(_condition, _sleep_mode) \
 	do { \
 		set_sleep_mode(_sleep_mode); \
